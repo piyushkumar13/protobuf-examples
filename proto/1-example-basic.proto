@@ -1,0 +1,30 @@
+
+syntax = "proto3";
+
+package example1;
+
+option java_package = "com.example.protobuf.example1";
+option java_outer_classname = "Example1";
+option java_multiple_files = true;
+
+message Employee{
+
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+  string orgName = 4;
+  string email = 5;
+  float salary = 6;
+  string department = 7;
+}
+
+
+message Student{
+
+  int32 rollno = 1;
+  string name = 2;
+  string address = 3;
+  string college = 4;
+  string email = 5;
+  repeated string subject = 6;
+}

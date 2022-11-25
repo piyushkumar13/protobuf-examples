@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package example3;
+
+option java_package = "com.example.protobuf.example3";
+option java_outer_classname = "Example3";
+option java_multiple_files = true;
+
+message Employee {
+
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string dept = 4;
+  Address address = 5;
+  EmpType empType = 6;
+}
+
+message Address {
+  string city = 1;
+  string street = 2;
+  string area = 3;
+  string state = 4;
+  string country = 5;
+  int32 pin = 6;
+}
+
+enum EmpType{
+
+  FULL_TIME = 0;
+  PART_TIME = 1;
+}

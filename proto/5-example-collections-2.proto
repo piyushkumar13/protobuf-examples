@@ -1,0 +1,58 @@
+/* As per this : https://developers.google.com/protocol-buffers/docs/proto3#maps Maps in protocol buffers does not support
+nested maps or having a value as a list etc. However, we can have a value as an object.
+So, there are few work around which is listed here : https://stackoverflow.com/q/38886789
+as well as in above google doc of protocol buffers
+By using it we can do - if we want to have a value as a list of lets say string.
+*/
+
+syntax = "proto3";
+
+package example5;
+
+option java_package = "com.example.protobuf.example5";
+option java_outer_classname = "Example5";
+option java_multiple_files = true;
+
+// Approach 1 - but here we have to define a wrapper class, which is redundant but have to live with it.
+message ListOfSubject{
+  repeated string subjects = 1;
+}
+
+message Student1{
+
+  int32 id = 1;
+  string name = 2;
+  string college = 3;
+  string address = 4;
+  repeated string subjects = 5;
+  map<string, ListOfSubject> subjectsByCategory = 6;
+}
+
+
+// Approach 2 - but here we have to define a wrapper class of entry itself.
+message MapFieldEntry{
+  string key = 1;
+  repeated string subjects = 2;
+}
+
+message Student2{
+
+  int32 id = 1;
+  string name = 2;
+  string college = 3;
+  string address = 4;
+  repeated string subjects = 5;
+  repeated MapFieldEntry subjectsByCategory = 6;
+}
+
+// Approach 3 - using ListValue - https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#listvalue
+import "google/protobuf/struct.proto";
+message Student3{
+
+  int32 id = 1;
+  string name = 2;
+  string college = 3;
+  string address = 4;
+  repeated string subjects = 5;
+  map<string, google.protobuf.ListValue> subjectsByCategory = 6;
+}

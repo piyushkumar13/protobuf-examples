@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package example6;
+
+option java_package = "com.example.protobuf.example6";
+option java_outer_classname = "Example6";
+option java_multiple_files = true;
+
+message Employee {
+
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string dept = 4;
+  Address address = 5;
+
+  message Address {
+    string city = 1;
+    string street = 2;
+    string area = 3;
+    string state = 4;
+    string country = 5;
+    int32 pin = 6;
+  }
+}
+

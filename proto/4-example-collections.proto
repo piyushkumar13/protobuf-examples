@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package example4;
+
+option java_package = "com.example.protobuf.example4";
+option java_outer_classname = "Example4";
+option java_multiple_files = true;
+
+
+message Student{
+
+  int32 id = 1;
+  string name = 2;
+  string college = 3;
+  string address = 4;
+  repeated string subjects = 5;
+  map<string, int32> marksBySubjectMap = 6;
+}
+
+
