@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package example7;
+
+option java_package = "com.example.protobuf.example7";
+option java_outer_classname = "Example7";
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+
+message Employee{
+
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+  string orgName = 4;
+  string email = 5;
+  float salary = 6;
+  string department = 7;
+  repeated google.protobuf.Any metadata = 8;
+
+}
+
+message Address {
+  string city = 1;
+  string street = 2;
+  string area = 3;
+  string state = 4;
+  string country = 5;
+  int32 pin = 6;
+}
+
+enum EmployeeType{
+  FULL_TIME = 0;
+  PART_TIME = 1;
+}
+
+message Technology{
+  repeated string techs = 1;
+}

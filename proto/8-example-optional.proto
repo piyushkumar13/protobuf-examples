@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package example7;
+
+option java_package = "com.example.protobuf.example8";
+option java_outer_classname = "Example8";
+option java_multiple_files = true;
+
+/* Optional and required were removed in proto3 however it was there in proto2.
+But, Optional(Only Optional) was returned back in proto3 3.5 version onwards.
+Check this : https://stackoverflow.com/a/66673775
+*/
+message Employee{
+
+  int32 id = 1;
+  string name = 2;
+  optional string address = 3;
+  string orgName = 4;
+  string email = 5;
+  float salary = 6;
+  string department = 7;
+}
